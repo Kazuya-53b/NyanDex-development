@@ -26,9 +26,15 @@ SNSでの発信を予定しています<br><br>
 ## 🐈 機能候補
 
 ### ・MVPリリース時
+- ユーザー登録機能
+- ログイン機能
+- パスワード変更機能
+- メールアドレス変更機能
 - ユーザープロフィール登録機能
-- 飼い猫のプロフィール登録機能
-- 猫の検索機能
+- ユーザープロフィール変更機能
+- 猫プロフィール登録機能
+- 猫プロフィール編集機能
+- 詳細検索機能
 - ブックマーク機能<br>
 
 ### ・本リリース時
@@ -46,4 +52,4 @@ SNSでの発信を予定しています<br><br>
 | API            | AWS S3 API |<br><br>
 
 ## 画面遷移図
-https://www.figma.com/design/BbISzniI4RsZ8EX6BEKOhy/NyanDex?node-id=0-1&t=nlCUdeXFCXo8vTZF-1
+Figma : https://www.figma.com/design/BbISzniI4RsZ8EX6BEKOhy/NyanDex?node-id=0-1&t=nlCUdeXFCXo8vTZF-1
