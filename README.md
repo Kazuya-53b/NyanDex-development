@@ -33,7 +33,7 @@ SNSでの発信を予定しています<br><br>
 - ユーザー情報登録機能
 - ユーザー情報変更機能
 - 猫プロフィール登録機能
-- 猫プロフィール変更機能
+- 猫プロフィール編集機能
 - 詳細検索機能
 - ブックマーク機能<br>
 
@@ -49,4 +49,7 @@ SNSでの発信を予定しています<br><br>
 | インフラ        | Heroku / AmazonS3                                      |
 | データベース    | PostgreSQL                                             |
 | 開発環境        | Docker                                                 |
-| API            | AWS S3 API |
+| API            | AWS S3 API |<br><br>
+
+## 画面遷移図
+Figma : https://www.figma.com/design/BbISzniI4RsZ8EX6BEKOhy/NyanDex?node-id=0-1&t=nlCUdeXFCXo8vTZF-1
