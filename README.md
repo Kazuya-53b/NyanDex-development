@@ -50,3 +50,6 @@ SNSでの発信を予定しています<br><br>
 | データベース    | PostgreSQL                                             |
 | 開発環境        | Docker                                                 |
 | API            | AWS S3 API |
+
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/0196fc69e30499d2f40779bcc5b7ba6f.png)](https://gyazo.com/0196fc69e30499d2f40779bcc5b7ba6f)
