@@ -43,4 +43,7 @@ SNSでの発信を予定しています<br><br>
 | インフラ        | Heroku / AmazonS3                                      |
 | データベース    | PostgreSQL                                             |
 | 開発環境        | Docker                                                 |
-| API            | AWS S3 API |
+| API            | AWS S3 API |<br><br>
+
+## 画面遷移図
+https://www.figma.com/design/BbISzniI4RsZ8EX6BEKOhy/NyanDex?node-id=0-1&t=nlCUdeXFCXo8vTZF-1
