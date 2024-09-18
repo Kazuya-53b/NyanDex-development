@@ -54,4 +54,4 @@ SNSでの発信を予定しています<br><br>
 ## 画面遷移図
 Figma : https://www.figma.com/design/BbISzniI4RsZ8EX6BEKOhy/NyanDex?node-id=0-1&t=nlCUdeXFCXo8vTZF-1<br><br>
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/0196fc69e30499d2f40779bcc5b7ba6f.png)](https://gyazo.com/0196fc69e30499d2f40779bcc5b7ba6f)
+[![Image from Gyazo](https://i.gyazo.com/b4bcda9a107e372a80e2eea0a1569040.png)](https://gyazo.com/b4bcda9a107e372a80e2eea0a1569040)
