@@ -52,4 +52,6 @@ SNSでの発信を予定しています<br><br>
 | API            | AWS S3 API |<br><br>
 
 ## 画面遷移図
-Figma : https://www.figma.com/design/BbISzniI4RsZ8EX6BEKOhy/NyanDex?node-id=0-1&t=nlCUdeXFCXo8vTZF-1
+Figma : https://www.figma.com/design/BbISzniI4RsZ8EX6BEKOhy/NyanDex?node-id=0-1&t=nlCUdeXFCXo8vTZF-1<br><br>
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/b4bcda9a107e372a80e2eea0a1569040.png)](https://gyazo.com/b4bcda9a107e372a80e2eea0a1569040)
