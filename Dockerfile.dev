@@ -1,0 +1,24 @@
+# ベースイメージの指定
+FROM ruby:3.2.2
+
+# 作業ディレクトリの設定
+WORKDIR /usr/src/app
+
+# 必要なパッケージのインストール
+RUN apt-get update -y && apt-get install -y \
+  build-essential \
+  libpq-dev \
+  nodejs \
+  && rm -rf /var/lib/apt/lists/*
+
+# GemfileとGemfile.lockをコピー
+COPY Gemfile Gemfile.lock ./
+
+# 必要なGemをインストール
+RUN bundle install
+
+# アプリケーションコードをコピー
+COPY . .
+
+# データベース作成のためのエントリポイント
+CMD ["bin/rails", "db:create", "db:migrate", "server", "-b", "0.0.0.0"]

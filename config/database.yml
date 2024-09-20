@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: user
+  password: password
+  host: db
+
+development:
+  <<: *default
+  database: nyandex_development
+
+test:
+  <<: *default
+  database: nyandex_test
+
+production:
+  <<: *default
+  database: nyandex_production
+  username: user
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

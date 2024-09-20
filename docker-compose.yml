@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: nyandex_development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    image: nyandex
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: bundle exec rails server -b '0.0.0.0'
+    volumes:
+      - ".:/rails"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+
+volumes:
+  postgres_data:
