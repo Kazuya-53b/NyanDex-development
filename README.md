@@ -47,7 +47,7 @@ SNSでの発信を予定しています<br><br>
 | フロントエンド  | TailwindCSS, DaisyUI, Hotwire           |
 | バックエンド    | Ruby on Rails                            |
 | インフラ        | Heroku / AmazonS3                                      |
-| データベース    | PostgreSQL                                             |
+| データベース    | MySQL                                             |
 | 開発環境        | Docker                                                 |
 | API            | AWS S3 API |<br><br>
 
