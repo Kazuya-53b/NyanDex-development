@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.error-message {
+  margin-bottom: 1rem;
+  color: #e53e3e; 
+  padding: 0.5rem;
+  border: 1px solid #e53e3e;
+  border-radius: 0.375rem;
+  background-color: #fff5f5;
+  font-weight: bold;
+}
