@@ -30,14 +30,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_23_132608) do
     t.string "username"
     t.string "email"
     t.string "profile_image"
+    t.string "crypted_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.string "encrypted_password"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "cats", "users"
