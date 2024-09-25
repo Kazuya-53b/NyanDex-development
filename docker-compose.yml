@@ -3,7 +3,7 @@ services:
     image: mysql:8.0
     environment:
       TZ: Asia/Tokyo
-      MYSQL_ROOT_PASSWORD: <%= ENV['DB_ROOT_PASSWORD'] %>
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
