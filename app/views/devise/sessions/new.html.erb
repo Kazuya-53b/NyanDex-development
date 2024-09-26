@@ -1,7 +1,14 @@
 <div class="flex items-center justify-center h-screen">  <div class="pt-6 pb-8 mb-4" style="width: 500px;">
     <h2 class="text-center text-xl font-bold mb-4"><%= I18n.t('devise.sessions.new.title') %></h2>
-    <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
+    <%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
+      <% if notice.present? %>
+        <p class="error-message"><%= notice %></p>
+      <% end %>
+  
+      <% if alert.present? %>
+        <p class="error-message"><%= alert %></p>
+      <% end %>
 
       <div class="mb-4">
         <%= f.label :email, t('form.labels.email'),class: "block text-gray-700 text-sm font-bold mb-2" %>
@@ -15,7 +22,6 @@
         <% end %>
         <%= f.password_field :password, autocomplete: "new-password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
-
       <div class="flex justify-between mb-4">
         <div></div>
         <a class="inline-block align-baseline font-bold text-sm text-orange-500 hover:text-orange-300" href="#">
