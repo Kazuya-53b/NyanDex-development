@@ -1,4 +1,5 @@
-<div class="flex items-center justify-center h-screen">  <div class="pt-6 pb-8 mb-4" style="width: 500px;">
+<div class="flex items-center justify-center">
+  <div class="pt-6 pb-8 mb-4 w-full max-w-xs sm:max-w-md mx-auto">
     <h2 class="text-center text-xl font-bold mb-4"><%= I18n.t('devise.sessions.new.title') %></h2>
     <%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -33,9 +34,5 @@
         <%= f.submit t('devise.sessions.new.sign_in'), class: "bg-orange-500 hover:bg-orange-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       </div>
     <% end %>
-  
-    <p class="text-center text-gray-500 text-xs">
-      &copy;2024 NyanDex. All rights reserved.
-    </p>
   </div>
 </div>
