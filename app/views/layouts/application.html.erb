@@ -18,6 +18,46 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="flex flex-col min-h-screen">
+      <header class="bg-customOrange text-gray-600 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+          <h1 class="text-xl font-bold ml-5">
+            <a href="<%= root_path %>">NyanDex</a>
+          </h1>
+          <% if user_signed_in? %>
+            <nav data-controller="navbar">
+              <ul class="flex space-x-8 mr-10">
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'hover:text-gray-400' %></li>
+              </ul>
+            </nav>
+          <% else %>
+            <nav data-controller="navbar">
+              <ul class="flex space-x-8 mr-10">
+                <li><%= link_to 'ユーザー登録', new_user_registration_path, class: 'hover:text-gray-400' %></li>
+                <li><%= link_to 'ログイン', new_user_session_path, class: 'hover:text-gray-400' %></li>
+              </ul>
+            </nav>
+          <% end %>
+        </div>
+      </header>
+
+      <main class="flex-grow flex flex-col items-center">
+        <% if flash[:notice].present? %>
+          <div class="bg-green-500 text-white p-4 rounded w-1/4 text-center mb-4">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+  
+        <div class="w-full">
+          <%= yield %>
+        </div>
+      </main>
+
+      <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+          <p>&copy; 2024 NyanDex. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
