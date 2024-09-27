@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "cats#index"
 
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+    get "/users/sign_out" => "devise/sessions#destroy"
   end
 
   devise_for :users, controllers: {
