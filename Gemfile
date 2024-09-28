@@ -22,6 +22,8 @@ gem "jbuilder"
 gem "hotwire-rails"
 
 gem "devise"
+
+gem "font-awesome-sass", "~> 6.5.2"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

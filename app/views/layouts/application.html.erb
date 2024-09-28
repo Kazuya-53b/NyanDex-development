@@ -3,7 +3,7 @@
   <head>
     <title><%= content_for(:title) || "Nyandex" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,6 +13,8 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preload" href="<%= asset_path('application.css') %>" as="style">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
@@ -43,7 +45,7 @@
 
       <main class="flex-grow flex flex-col items-center">
         <% if flash[:notice].present? %>
-          <div class="bg-green-500 text-white p-4 rounded w-1/4 text-center mb-4">
+          <div id="flash-message" class="absolute top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white rounded p-2 shadow-lg z-10">
             <%= flash[:notice] %>
           </div>
         <% end %>
