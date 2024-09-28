@@ -1,0 +1,9 @@
+<h1>メールアドレスの変更</h1>
+
+<%= form_with model: @user, url: user_registration_path, method: :put do |f| %>
+  <div class="form-group">
+    <%= f.label :email, "新しいメールアドレス" %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+  <%= f.submit "変更", class: 'btn btn-success' %>
+<% end %>
