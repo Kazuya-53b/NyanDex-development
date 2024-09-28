@@ -1,6 +1,6 @@
 <div class="flex items-center justify-center">
   <div class="pt-6 pb-8 mb-4 w-full max-w-xs sm:max-w-md mx-auto">
-    <h2 class="text-center text-xl font-bold mb-4"><%= I18n.t('devise.registrations.new.title') %></h2>
+    <h2 class="text-center text-xl text-black-400 font-bold mb-4"><%= I18n.t('devise.registrations.new.title') %></h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
