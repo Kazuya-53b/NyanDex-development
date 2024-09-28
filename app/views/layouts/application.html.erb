@@ -44,12 +44,10 @@
       </header>
 
       <main class="flex-grow flex flex-col items-center">
-        <% if flash[:notice].present? %>
-          <div id="flash-message" class="absolute top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white rounded p-2 shadow-lg z-10">
-            <%= flash[:notice] %>
-          </div>
-        <% end %>
-  
+        <div id="flash-message-container">
+          <%= render 'layouts/flash_message' %>
+        </div>
+
         <div class="w-full">
           <%= yield %>
         </div>

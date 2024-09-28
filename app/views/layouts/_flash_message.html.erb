@@ -1,0 +1,5 @@
+<% if flash[:notice].present? %>
+  <div id="flash-message" class="absolute top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white rounded p-2 shadow-lg z-10">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
