@@ -10,7 +10,12 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
 
-  resources :users, only: [ :show, :edit, :update ]
+  resources :users, only: [ :show, :edit, :update_username ]
+  resources :users do
+    member do
+      patch 'update_username'
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
