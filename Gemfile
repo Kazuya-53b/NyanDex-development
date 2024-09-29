@@ -24,6 +24,12 @@ gem "hotwire-rails"
 gem "devise"
 
 gem "font-awesome-sass", "~> 6.5.2"
+
+gem "aws-sdk-s3", "~> 1.166"
+
+gem "carrierwave", "~> 2.0"
+
+gem "fog-aws"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -63,7 +69,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem "aws-sdk-s3", "~> 1.166"
 
 gem "dotenv-rails", groups: [:development, :test]
