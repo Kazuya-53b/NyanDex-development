@@ -63,3 +63,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "aws-sdk-s3", "~> 1.166"
+
+gem "dotenv-rails", groups: [:development, :test]
