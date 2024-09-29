@@ -1,7 +1,11 @@
 <div class="flex items-center justify-center">
-  <div class="pt-6 pb-8 mb-4 w-full max-w-xs sm:max-w-md mx-auto">
-    <h2 class="text-center text-xl text-black-400 font-bold mb-4"><%= I18n.t('users.show.title') %></h2>
-    <div id="user-info-container">
+  <div class="pt-6 pb-8 mb-4 w-full max-w-xs sm:max-w-md mx-auto text-center">
+    <h2 class="text-center text-xl text-black-400 font-bold mb-4">
+      <%= I18n.t('users.show.title') %>
+    </h2>
+
+    <div class="flex flex-col items-center justify-center"> 
+      <%= image_tag(@user.profile_image, alt: "User Profile Image", class: "w-36 h-36 rounded-full object-cover border-4 border-blue-300 mb-6") %>
       <%= render partial: 'users/edit_username', locals: { user: @user } %>
     </div>
 
@@ -22,7 +26,7 @@
     </script>
 
     <div class="mt-4 mb-4">
-    <label class="block text-gray-700 text-sm font-bold mb-2">
+    <label class="block text-gray-700 text-sm font-bold text-left mb-2">
         <%= t('form.labels.email') %>
       </label>
 
@@ -38,7 +42,7 @@
     </div>
 
     <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2">
+      <label class="block text-gray-700 text-sm font-bold text-left mb-2">
         <%= t('form.labels.password') %>
       </label>
 

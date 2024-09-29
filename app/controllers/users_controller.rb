@@ -21,7 +21,7 @@ class UsersController < ApplicationController
             turbo_stream.replace("flash-message-container", partial: "layouts/flash_message")  # フラッシュメッセージ更新
           ]
         end
-        format.html { redirect_to @user, notice: "ユーザー名が更新されました。" }
+        format.html { redirect_to @user, notice: "ユーザー名を更新しました" }
       end
     else
       respond_to do |format|
