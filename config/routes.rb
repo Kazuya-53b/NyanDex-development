@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :users, only: [ :show, :edit, :update_username ]
   resources :users do
     member do
-      patch 'update_username'
+      patch "update_username"
+      patch "update_profile_image"
     end
   end
 
