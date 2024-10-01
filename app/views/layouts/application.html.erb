@@ -21,15 +21,20 @@
 
   <body>
     <div class="flex flex-col min-h-screen">
-      <header class="bg-customOrange text-gray-600 py-4">
-        <div class="container mx-auto flex justify-between items-center">
+      <header class="bg-customOrange text-gray-600" style="height: 60px;">
+        <div class="container mx-auto flex justify-between items-center h-full">
           <h1 class="text-xl font-bold ml-5">
             <a href="<%= root_path %>">NyanDex</a>
           </h1>
           <% if user_signed_in? %>
             <nav data-controller="navbar">
-              <ul class="flex space-x-8 mr-10">
+              <ul class="flex items-center space-x-8 mr-10">
                 <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'hover:text-gray-400' %></li>
+                <li>
+                  <%= link_to user_path(current_user) do %>
+                    <%= image_tag(current_user.profile_image.url || '/assets/default_user_image.png', alt: "User Icon", class: "w-12 h-12 rounded-full border-2 border-blue-400 object-cover") %>
+                  <% end %>
+                </li>
               </ul>
             </nav>
           <% else %>
