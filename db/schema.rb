@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_29_031745) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_30_140521) do
   create_table "cats", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "gender"
@@ -29,12 +29,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_29_031745) do
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username"
     t.string "email"
-    t.string "profile_image", default: "https://nyandexapp-images.s3.ap-northeast-1.amazonaws.com/sample01.jpg"
     t.string "crypted_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password"
     t.datetime "remember_created_at"
+    t.string "profile_image"
   end
 
   add_foreign_key "cats", "users"

@@ -383,7 +383,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
-  fog-aws
+  fog-aws (~> 3.0)
   font-awesome-sass (~> 6.5.2)
   hotwire-rails
   jbuilder

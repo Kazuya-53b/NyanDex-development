@@ -1,0 +1,70 @@
+<div class="flex flex-col items-center justify-center"> 
+  <div id="user-profile-image" class="flex items-center space-x-4">
+    <%= image_tag(@user.profile_image.url, alt: "User Profile Image", id: "profile-image-preview", class: "w-36 h-36 rounded-full object-cover border-4 border-blue mr-8") %>
+
+    <div class="flex flex-col justify-center h-36"> <!-- 高さをアイコン画像に揃える -->
+      <%= form_for @user, url: update_profile_image_user_path(@user), html: { multipart: true } do |f| %>
+        <div class="flex justify-center items-center h-full">
+          <!-- ファイルフィールドをボタンの前に置く -->
+          <%= f.file_field :profile_image, accept: 'image/*', class: 'hidden', id: 'file-upload', onchange: "previewImage(event); showUpdateButtons();" %>
+          
+          <!-- アイコン画像を変更ボタン -->
+          <button type="button" onclick="document.getElementById('file-upload').click()" class="flex items-center justify-center h-12" id="change-button">
+            <i class="fas fa-pencil-alt cursor-pointer bg-orange-500 text-white p-3 rounded" style="width: 101px;"></i>
+          </button>
+        </div>
+
+        <!-- 更新ボタンと戻るボタン（初期は非表示） -->
+        <div class="hidden flex flex-col justify-center items-center h-full" id="action-buttons">
+          <!-- ボタンを横並びにするための flex クラスを追加 -->
+          <div class="flex space-x-button">
+            <!-- 更新ボタン -->
+            <%= f.submit '更新', class: 'bg-orange-500 text-white p-2 rounded font-bold flex-shrink-0 h-12' %>
+
+            <!-- 変更を破棄する戻るボタン -->
+            <button type="button" onclick="resetImage()" class="bg-gray-300 text-black p-2 rounded font-bold flex-shrink-0 h-12">
+              戻る
+            </button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  // 元の画像のURLを保存しておく
+  var originalImageSrc = document.getElementById('profile-image-preview').src;
+
+  // 画像プレビューを更新する関数
+  function previewImage(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('profile-image-preview');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+  // 「アイコン画像を変更」ボタンを押すと「更新」および「戻る」ボタンを表示する
+  function showUpdateButtons() {
+    // アイコン変更ボタンを非表示にする
+    document.getElementById('change-button').style.display = 'none';
+
+    // 更新と戻るボタンを表示する
+    document.getElementById('action-buttons').style.display = 'block';
+  }
+
+  // 画像を元のURLに戻す関数
+  function resetImage() {
+    var output = document.getElementById('profile-image-preview');
+    output.src = originalImageSrc;
+
+    // ファイル選択のリセット
+    document.getElementById('file-upload').value = null;
+
+    // 更新と戻るボタンを非表示にして、アイコン画像を変更ボタンを再度表示する
+    document.getElementById('action-buttons').style.display = 'none';
+    document.getElementById('change-button').style.display = 'block';
+  }
+</script>

@@ -29,7 +29,7 @@ gem "aws-sdk-s3", "~> 1.166"
 
 gem "carrierwave", "~> 2.0"
 
-gem "fog-aws"
+gem "fog-aws", "~> 3.0"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
