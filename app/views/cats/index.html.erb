@@ -1,7 +1,3 @@
-<h1>トップページ</h1>
-
-<ul>
-  <% @cats.each do |cat| %>
-    <li><%= cat.name %> - <%= cat.breed %></li>
-  <% end %>
-</ul>
+<div class="flex flex-wrap gap-4">
+  <%= safe_join(@cats.map { |cat| render(CatCardComponent.new(cat: cat)) }) %>
+</div>
