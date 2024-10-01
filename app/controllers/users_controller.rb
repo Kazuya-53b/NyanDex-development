@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def update_username
     @user = User.find(params[:id])
-  
+
     if @user.update(user_params)
       flash.now[:notice] = "ユーザー名を更新しました"
       respond_to do |format|

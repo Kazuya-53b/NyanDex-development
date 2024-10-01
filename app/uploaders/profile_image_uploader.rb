@@ -7,5 +7,5 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
 
   def default_url(*args)
     ActionController::Base.helpers.asset_path("default_user_image.png")
-  end  
+  end
 end
