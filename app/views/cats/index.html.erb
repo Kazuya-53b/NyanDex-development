@@ -1,3 +1,5 @@
-<div class="flex flex-wrap gap-4">
-  <%= safe_join(@cats.map { |cat| render(CatCardComponent.new(cat: cat)) }) %>
+<div class="container mx-auto px-8 max-w-screen-lg">
+  <div class="grid gap-4 grid-cols-2 md:grid-cols-4">
+    <%= render CatCardComponent.with_collection(@cats) %>
+  </div>
 </div>
