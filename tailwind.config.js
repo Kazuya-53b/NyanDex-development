@@ -6,12 +6,4 @@ module.exports = {
     './app/javascript/**/*.js'
   ],
   plugins: [require("daisyui")],
-
-  theme: {
-    extend: {
-      colors: {
-        customOrange: '#FFC27B',
-      },
-    },
-  },
 }
