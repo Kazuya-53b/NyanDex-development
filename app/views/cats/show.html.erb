@@ -1,0 +1,21 @@
+<div class="cat-details">
+  <h1><%= @cat.name %>のプロフィール</h1>
+
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @cat.cat_images.each do |image| %>
+        <div class="swiper-slide">
+        <img src="<%= image.url %>">
+        </div>
+      <% end %>
+    </div>
+
+    <!-- If you want pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If you want navigation buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
