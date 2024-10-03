@@ -8,5 +8,7 @@ class CatsController < ApplicationController
   end
 
   def show
+    @cat = Cat.find(params[:id])
+    @cat.cat_images = @cat.cat_images.order(:created_at)
   end
 end
