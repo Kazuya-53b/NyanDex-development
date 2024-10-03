@@ -6,17 +6,29 @@ class CatCardComponent < ViewComponent::Base
   end
 
   def call
-    content_tag :div, class: "card-container" do
-      image = @cat.cat_images.first&.image_url || asset_path('sample_cat_image.jpeg')
-      safe_join([
-        content_tag(:div, class: "image-container") do
-          image_tag(image, class: "square-image")
-        end,
-        content_tag(:h3, @cat.name, class: "font-bold"),
-        content_tag(:p, "#{@cat.age} 歳", class: "text-gray-500"),
-        content_tag(:p, @cat.gender, class: "text-gray-500"),
-        content_tag(:p, @cat.short_description || "ショートコメント", class: "text-gray-500")
-      ])
+    link_to cat_path(@cat), class: "card-container" do
+      content_tag :div do
+        image = @cat.cat_images.first&.image_url || asset_path('sample_cat_image.jpeg')
+        safe_join([
+          content_tag(:div, class: "image-container") do
+            image_tag(image, class: "square-image")
+          end,
+          content_tag(:div, class: "flex justify-center mt-2 space-x-card-status") do
+            safe_join([
+              content_tag(:div, class: "status-box") do
+                content_tag(:h3, @cat.name, class: "font-bold text-gray-500")
+              end,
+              content_tag(:div, class: "status-box") do
+              content_tag(:p, "#{@cat.age} 歳", class: "font-bold text-gray-500")
+              end,
+              content_tag(:div, class: "status-box") do
+              content_tag(:p, @cat.gender, class: "font-bold text-gray-500")
+              end
+            ])
+          end,
+          content_tag(:p, @cat.short_description, class: "short-comment-box text-gray-500 mt-4 text-center")
+        ])
+      end
     end
   end
 end

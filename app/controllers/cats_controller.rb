@@ -6,4 +6,7 @@ class CatsController < ApplicationController
       format.turbo_stream
     end
   end
+
+  def show
+  end
 end
