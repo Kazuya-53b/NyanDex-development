@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_30_140521) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_01_094941) do
+  create_table "cat_images", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "cat_id", null: false
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cat_id"], name: "index_cat_images_on_cat_id"
+  end
+
   create_table "cats", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "gender"
@@ -37,5 +45,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_30_140521) do
     t.string "profile_image"
   end
 
+  add_foreign_key "cat_images", "cats"
   add_foreign_key "cats", "users"
 end

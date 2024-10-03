@@ -2,6 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
+.header {
+  background-color: #F99F48;
+  color: #4B5563;
+  height: 60px;
+}
+
+.footer {
+  background-color: #1B435D;
+  color: #FFFFFF;
+  padding: 1rem 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.profile-image {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 4px solid #78BBE6;
+  margin-right: 2rem;
+  overflow: hidden;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 4rem;
+}
+
+.card-container {
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  background-color: #ececec;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: #f9f9f9;
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.square-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.status-box {
+  padding: 0.2rem;
+  background-color: #FFFFFF;
+  border-radius: 0.5rem;
+}
+
+.short-comment-box {
+  height: 5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
 .error-message {
   margin-bottom: 1rem;
   color: #e53e3e; 
@@ -12,26 +89,6 @@
   font-weight: bold;
 }
 
-.w-36 {
-  width: 9rem;
-}
-
-.h-36 {
-  height: 9rem;
-}
-
-.rounded-full {
-  border-radius: 9999px;
-}
-
-.overflow-hidden {
-  overflow: hidden;
-}
-
-.border-blue {
-  border: 4px solid #60A5FA;
-}
-
 .space-x-button > * {
   margin-right: 8px;
 }
@@ -40,6 +97,10 @@
   margin-right: 0;
 }
 
-.mr-8 {
-  margin-right: 8px;
+.space-x-card-status > * {
+  margin-right: 0.5rem;
+}
+
+.space-x-card-status > :last-child {
+  margin-right: 0;
 }

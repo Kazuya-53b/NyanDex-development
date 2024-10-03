@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center"> 
   <div id="user-profile-image" class="flex items-center space-x-4">
-    <%= image_tag(@user.profile_image.url, alt: "User Profile Image", id: "profile-image-preview", class: "w-36 h-36 rounded-full object-cover border-4 border-blue mr-8") %>
+    <%= image_tag(@user.profile_image.url, alt: "User Profile Image", id: "profile-image-preview", class: "profile-image") %>
 
     <div class="flex flex-col justify-center">
       <%= form_for @user, url: update_profile_image_user_path(@user), html: { multipart: true } do |f| %>
