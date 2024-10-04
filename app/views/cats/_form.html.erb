@@ -1,0 +1,32 @@
+<form enctype="multipart/form-data" action="/cats" accept-charset="UTF-8" method="post">
+  <input type="hidden" name="authenticity_token" value="N_-jxwSF271GpSylRHLqzN_eOxlBU3Jr-Og3hDEkgKTG0Q3sO9uZ6fV3IUyT9l6wmJXR64RWpkcOZWM7PrmYrg" autocomplete="off">
+  
+  <label for="cat_name">Name</label>
+  <input type="text" name="cat[name]" id="cat_name">
+
+  <label for="cat_gender">Gender</label>
+  <input type="text" name="cat[gender]" id="cat_gender">
+
+  <label for="cat_age">Age</label>
+  <input type="number" name="cat[age]" id="cat_age">
+
+  <label for="cat_breed">Breed</label>
+  <input type="text" name="cat[breed]" id="cat_breed">
+
+  <label for="cat_color">Color</label>
+  <input type="text" name="cat[color]" id="cat_color">
+
+  <label for="cat_pattern">Pattern</label>
+  <input type="text" name="cat[pattern]" id="cat_pattern">
+
+  <label for="cat_short_description">Short description</label>
+  <textarea name="cat[short_description]" id="cat_short_description"></textarea>
+
+  <label for="cat_long_description">Long description</label>
+  <textarea name="cat[long_description]" id="cat_long_description"></textarea>
+
+  <label for="cat_images">Images</label>
+  <input accept="image/*" multiple="multiple" type="file" name="cat[images][]" id="cat_images">
+
+  <input type="submit" name="commit" value="猫を登録" data-disable-with="猫を登録">
+</form>
