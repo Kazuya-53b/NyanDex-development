@@ -12,7 +12,8 @@ class CatsController < ApplicationController
   end
 
   def show
-    @cat = Cat.find(params[:id]) # ユーザーの猫を取得
+    @cat = Cat.find(params[:id])
+    @cat.images
   end
 
   def create

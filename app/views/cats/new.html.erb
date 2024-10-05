@@ -1,0 +1,22 @@
+<div id="form_container">
+ <%= render "form" %>
+</div>
+
+<script>
+  document.getElementById("images").addEventListener("change", function(event) {
+    const imagePreview = document.getElementById("image-preview");
+    imagePreview.innerHTML = "";
+    Array.from(event.target.files).forEach(file => {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = document.createElement("img");
+        img.src = e.target.result;
+        img.width = 100; // 任意のサイズに設定
+        imagePreview.appendChild(img);
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+</script>
+
+<div id="image-preview"></div>

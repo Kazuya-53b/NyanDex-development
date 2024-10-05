@@ -1,28 +1,57 @@
 // Entry point for the build script in your package.json
-import "@hotwired/turbo-rails"
-import "./controllers"
-import Swiper from 'swiper';
-import 'swiper/swiper-bundle.css';
+import "@hotwired/turbo-rails";
+import "./controllers";
 
-document.addEventListener("turbo:load", () => {
-  const swiper = new Swiper('.swiper-container', {
-    // Optional parameters
-    loop: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
+document.addEventListener("turbo:load", function() {
+  const mainSwiperContainer = document.querySelector('.main-swiper');
+  const thumbSwiperContainer = document.querySelector('.thumb-swiper');
 
-    // If you need pagination
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
+    // 画像がすべて読み込まれたかをチェックする関数
+    function checkImagesLoaded(images, callback) {
+      let loadedImages = 0;
+      images.forEach((img) => {
+        if (img.complete) {  // すでに画像がキャッシュされている場合
+          loadedImages++;
+        } else {
+          img.onload = () => {
+            loadedImages++;
+            if (loadedImages === images.length) {
+              callback();
+            }
+          };
+          img.onerror = () => {
+            loadedImages++;
+            if (loadedImages === images.length) {
+              callback();
+            }
+          };
+        }
+      });
+  
+      // すべての画像がすでに読み込まれていた場合に即座にcallbackを呼ぶ
+      if (loadedImages === images.length) {
+        callback();
+      }
+    }
+    
+  const thumbSwiperOptions = {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    slideToClickedSlide: true,
+    loop: false,
+  };
 
-    // Navigation arrows
+  const thumbSwiper = new Swiper(thumbSwiperContainer, thumbSwiperOptions);
+
+  const mainSwiperOptions = {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-  });
+    thumbs: {
+      swiper: thumbSwiper,
+    },
+  };
+
+  const mainSwiper = new Swiper(mainSwiperContainer, mainSwiperOptions);
 });

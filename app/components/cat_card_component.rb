@@ -8,7 +8,7 @@ class CatCardComponent < ViewComponent::Base
   def call
     link_to cat_path(@cat), class: "card-container" do
       content_tag :div do
-        image = @cat.cat_images.first&.image_url || asset_path("sample_cat_image.jpeg")
+        image = @cat.images.first&.url || asset_path("sample_cat_image.jpeg")
         safe_join([
           content_tag(:div, class: "image-container") do
             image_tag(image, class: "square-image")
