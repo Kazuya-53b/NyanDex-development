@@ -2,6 +2,7 @@
   <h1><%= @cat.name %>のプロフィール</h1>
 
   <div id="cat-images" data-total-images="<%= @cat.images.size %>"></div>
+  
   <!-- Main Swiper -->
   <div class="swiper-container main-swiper">
     <div class="swiper-wrapper">
@@ -29,3 +30,32 @@
     </div>
   </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener("turbo:load", function() {
+  const mainSwiperContainer = document.querySelector('.main-swiper');
+  const thumbSwiperContainer = document.querySelector('.thumb-swiper');
+
+  const thumbSwiperOptions = {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    slideToClickedSlide: true,
+    loop: false,
+  };
+
+  const thumbSwiper = new Swiper(thumbSwiperContainer, thumbSwiperOptions);
+
+  const mainSwiperOptions = {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    thumbs: {
+      swiper: thumbSwiper,
+    },
+  };
+
+  const mainSwiper = new Swiper(mainSwiperContainer, mainSwiperOptions);
+});
+</script>
