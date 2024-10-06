@@ -27,11 +27,15 @@ gem "font-awesome-sass", "~> 6.5.2"
 
 gem "aws-sdk-s3", "~> 1.167"
 
-gem "carrierwave", "~> 3.0"
+gem "carrierwave", "~> 2.2.6"
 
 gem "fog-aws", "~> 3.0"
 
 gem "view_component"
+
+gem "mini_magick", "~> 4.13"
+
+gem "activesupport", "~> 7.2.1"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -59,6 +63,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "pry"
+  gem "pry-rails"
 end
 
 group :development do
