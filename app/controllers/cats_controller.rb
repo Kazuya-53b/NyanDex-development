@@ -34,30 +34,30 @@ class CatsController < ApplicationController
   end
 
   def upload_images_to_s3(cat, crop_params)
-    s3 = Aws::S3::Resource.new(region: ENV['AWS_REGION'])
+    s3 = Aws::S3::Resource.new(region: ENV["AWS_REGION"])
     image_urls = []
-  
+
     cat.images.each_with_index do |image, index|
       next if image.blank? || image.is_a?(String)
-  
+
       begin
         # トリミング処理を追加
         uploader = ImageUploader.new
         uploader.store!(image)
-  
+
         # 画像をトリミング
         uploader.crop_image(crop_params[index]) if crop_params[index].present?
-  
+
         # S3にアップロード
         obj = s3.bucket("nyandexapp-images").object("cats/#{cat.id}/#{File.basename(image.tempfile)}")
         obj.upload_file(uploader.file.path)
-  
+
         image_urls << obj.public_url
       rescue => e
         # エラーハンドリング（適宜）
       end
     end
-  
+
     cat.update(images: image_urls) if image_urls.any?
   end
 end
