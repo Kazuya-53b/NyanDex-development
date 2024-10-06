@@ -23,7 +23,7 @@
 
 
   <div id="edit-form" style="display: none; height: 44px;">
-    <%= form_with(model: user, local: false, url: update_username_user_path(user), method: :patch, id: "name-form", data: { turbo_cache: "false" }) do |f| %>
+    <%= form_with(model: user, local: false, url: update_username_user_path(user), method: :patch, id: "name-form", data: { turbo_temporary: "false" }) do |f| %>
       <div style="display: flex; gap: 8px; align-items: center; justify-content: center;">
         <%= f.text_field :username, value: user.username, class: "border-2 rounded p-2 text-center inline-block min-w-[200px] md:min-w-[339px]", style: "display: inline-block;" %>
         <%= f.submit '更新', class: 'bg-orange-500 text-white p-2 rounded font-bold flex-shrink-0' %>
