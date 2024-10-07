@@ -16,45 +16,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
-    <link rel="preload" href="<%= asset_path('application.css') %>" as="style">
-    <%= stylesheet_link_tag "application.css", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <link rel="stylesheet" href="<%= asset_path('application.css') %>" as="style">
   </head>
 
   <body>
     <div class="flex flex-col min-h-screen">
       <header class="header">
-        <div class="container mx-auto flex justify-between items-center h-full">
-          <h1 class="text-xl font-bold ml-5">
-            <a href="<%= root_path %>" data-turbo="false">NyanDex</a>
-          </h1>
-          <% if user_signed_in? %>
-            <nav data-controller="navbar">
-              <ul class="flex items-center justify-center mr-10">
-                <li>
-                  <div class="relative">
-                    <button id="dropdown-button" class="hover:text-gray-400 focus:outline-none flex items-center"> <!-- flex items-center を追加 -->
-                      <%= image_tag(current_user.profile_image.url || '/assets/default_user_image.png', alt: "User Icon", class: "w-12 h-12 rounded-full border-2 border-blue-400 object-cover") %>
-                    </button>
-                    <ul id="dropdown-menu" class="absolute hidden bg-white shadow-lg mt-2 rounded-md w-32 left-1/2 transform -translate-x-1/2">
-                      <li><%= link_to 'マイページ', user_path(current_user), class: 'block px-4 py-2 text-gray-800 hover:bg-gray-100' %></li>
-                      <li><%= link_to 'アカウント設定', user_path(current_user), class: 'block px-4 py-2 text-gray-800 hover:bg-gray-100' %></li>
-                      <li class="border-t border-gray-300"></li>
-                      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'block px-4 py-2 text-gray-800 hover:bg-gray-100' %></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </nav>
-          <% else %>
-            <nav data-controller="navbar">
-              <ul class="flex space-x-8 mr-10">
-                <li><%= link_to 'ユーザー登録', new_user_registration_path, class: 'hover:text-gray-400' %></li>
-                <li><%= link_to 'ログイン', new_user_session_path, class: 'hover:text-gray-400' %></li>
-              </ul>
-            </nav>
-          <% end %>
-        </div>
+        <%= render 'layouts/header' %>
       </header>
 
       <main class="flex-grow flex flex-col items-center">

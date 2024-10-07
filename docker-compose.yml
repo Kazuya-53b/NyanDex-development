@@ -3,7 +3,7 @@ services:
     image: mysql:8.0
     environment:
       TZ: Asia/Tokyo
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: password
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
@@ -22,17 +22,12 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - .:/nyandex
+      - .:/myapp
       - bundle_data:/usr/local/bundle:cached
-      - node_modules:/nyandex/node_modules
-    env_file:
-      - .env
+      - node_modules:/myapp/node_modules
     environment:
+      RAILS_MAX_THREADS: 5
       TZ: Asia/Tokyo
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-      AWS_REGION: ${AWS_REGION}
-      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
     ports:
       - "3000:3000"
     depends_on:
