@@ -1,0 +1,49 @@
+<div class="flex items-center h-full">
+  <h1 class="text-xl font-bold ml-5">
+    <a href="<%= root_path %>" data-turbo="false">NyanDex</a>
+  </h1>
+  <% if user_signed_in? %>
+    <nav class="flex items-center ml-auto space-x-8">
+      <div>
+        <%= image_tag(current_user.profile_image.url || '/assets/default_user_image.png', alt: "User Icon", class: "flex w-12 h-12 rounded-full border-2 border-blue-400 object-cover cursor-pointer", id: "user-icon") %>
+        <div id="dropdown-menu" class="hidden absolute bg-white shadow-md mt-2 rounded-lg z-10">
+        <ul class="flex flex-col">
+          <li><%= link_to 'マイページ', user_path(current_user), class: 'block px-4 py-2 hover:bg-gray-100' %></li>
+          <li><%= link_to 'アカウント設定', edit_user_registration_path, class: 'block px-4 py-2 hover:bg-gray-100' %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'block px-4 py-2 hover:bg-gray-100' %></li>
+        </ul>
+      </div>
+    </div>
+      <span class="mx-4"></span>
+    </nav>
+  <% else %>
+    <nav class="flex items-center ml-auto space-x-8">
+      <ul class="flex space-x-8">
+        <li><%= link_to 'ユーザー登録', new_user_registration_path, class: 'hover:text-gray-400' %></li>
+        <li><%= link_to 'ログイン', new_user_session_path, class: 'hover:text-gray-400' %></li>
+        <span class="mx-4"></span>
+      </ul>
+    </nav>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownButton = document.getElementById('user-icon');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+
+    dropdownButton.addEventListener('click', function(event) {
+      event.stopPropagation();
+      dropdownMenu.classList.toggle('hidden');
+      dropdownMenu.style.right = '0';
+    });
+
+    document.addEventListener('click', function() {
+      dropdownMenu.classList.add('hidden');
+    });
+
+    dropdownMenu.addEventListener('click', function(event) {
+      event.stopPropagation();
+    });
+  });
+</script>

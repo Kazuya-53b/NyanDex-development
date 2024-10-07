@@ -63,9 +63,6 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-
-  gem "pry"
-  gem "pry-rails"
 end
 
 group :development do
@@ -79,4 +76,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "dotenv-rails", groups: [ :development, :test ]
+gem "dotenv-rails", groups: [:development, :test]

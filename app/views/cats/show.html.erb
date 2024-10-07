@@ -1,14 +1,3 @@
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swiper Example</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-</head>
-<body>
 <div class="cat-details">
   <h1><%= @cat.name %>のプロフィール</h1>
 
@@ -19,7 +8,7 @@
     <div class="swiper-wrapper">
       <% @cat.images.each do |image_url| %>
         <div class="swiper-slide">
-          <img src="<%= image_url %>" class="main-image" style="width:100%; height:auto;">
+          <img src="<%= image_url %>" class="main-image">
         </div>
       <% end %>
     </div>
@@ -35,7 +24,7 @@
     <div class="swiper-wrapper">
       <% @cat.images.each do |image_url| %>
         <div class="swiper-slide" style="cursor: pointer;">
-          <img src="<%= image_url %>" class="thumbnail-image" style="width:100px; height:auto; border: 2px solid transparent;">
+          <img src="<%= image_url %>" class="thumbnail-image" style="border: 2px solid transparent;">
         </div>
       <% end %>
     </div>
@@ -44,31 +33,29 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
-document.addEventListener("turbo:load", function() {
-  const mainSwiperContainer = document.querySelector('.main-swiper');
-  const thumbSwiperContainer = document.querySelector('.thumb-swiper');
+document.addEventListener("DOMContentLoaded", function() {
+    const mainSwiperContainer = document.querySelector('.main-swiper');
+    const thumbSwiperContainer = document.querySelector('.thumb-swiper');
 
-  const thumbSwiperOptions = {
-    slidesPerView: 'auto',
-    spaceBetween: 10,
-    slideToClickedSlide: true,
-    loop: false,
-  };
+    const thumbSwiperOptions = {
+      slidesPerView: 'auto',
+      spaceBetween: 10,
+      slideToClickedSlide: true,
+      loop: false,
+    };
 
-  const thumbSwiper = new Swiper(thumbSwiperContainer, thumbSwiperOptions);
+    const thumbSwiper = new Swiper(thumbSwiperContainer, thumbSwiperOptions);
 
-  const mainSwiperOptions = {
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    thumbs: {
-      swiper: thumbSwiper,
-    },
-  };
+    const mainSwiperOptions = {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: thumbSwiper,
+      },
+    };
 
-  const mainSwiper = new Swiper(mainSwiperContainer, mainSwiperOptions);
-});
+    const mainSwiper = new Swiper(mainSwiperContainer, mainSwiperOptions);
+  });
 </script>
-</body>
-</html>
