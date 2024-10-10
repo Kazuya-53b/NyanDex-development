@@ -21,7 +21,7 @@ class CatsController < ApplicationController
     @cat.user_id = current_user.id if user_signed_in?
 
     if @cat.save
-      redirect_to @cat, notice: "猫のプロフィールが作成されました。"
+      redirect_to @cat, notice: "プロフィールを作成しました"
     else
       render :new
     end
