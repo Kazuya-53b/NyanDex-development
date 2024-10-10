@@ -147,6 +147,17 @@
   }
 }
 
+@media (max-width: 420px) {
+  .main-image {
+    width: 80%;
+    height: auto;
+  }
+  .thumbnail-image {
+    width: 20vw;
+    height: auto;
+  }
+}
+
 .thumbnail-image:hover {
   border-color: #f2a49b;
 }

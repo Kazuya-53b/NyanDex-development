@@ -13,6 +13,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # トリミング処理
   def crop_image(crop_params)
     manipulate! do |img|
+      # 画像のサイズを制限
+      img.resize "1200x1200>"
+
       # crop_paramsは{x: 左端, y: 上端, width: 幅, height: 高さ}のハッシュであることを仮定
       x = crop_params[:x]
       y = crop_params[:y]
