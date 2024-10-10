@@ -1,5 +1,7 @@
-<div class="cat-details">
-  <h1><%= @cat.name %>のプロフィール</h1>
+<div class="items-center justify-center">
+  <h2 class="text-center text-xl text-black-400 font-bold mb-4 mt-6">
+    <%= @cat.name %> のプロフィール
+  </h2>
 
   <div id="cat-images" data-total-images="<%= @cat.images.size %>"></div>
   
@@ -37,25 +39,38 @@ document.addEventListener("DOMContentLoaded", function() {
     const mainSwiperContainer = document.querySelector('.main-swiper');
     const thumbSwiperContainer = document.querySelector('.thumb-swiper');
 
+    // サブSwiperの設定
     const thumbSwiperOptions = {
       slidesPerView: 'auto',
       spaceBetween: 10,
+      centeredSlides: true,
       slideToClickedSlide: true,
       loop: false,
     };
 
     const thumbSwiper = new Swiper(thumbSwiperContainer, thumbSwiperOptions);
 
+    // メインSwiperの設定
     const mainSwiperOptions = {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      loop: false,
       thumbs: {
         swiper: thumbSwiper,
       },
     };
 
     const mainSwiper = new Swiper(mainSwiperContainer, mainSwiperOptions);
-  });
+
+    // サブSwiper内のスライドをクリックしたときのイベント
+    thumbSwiper.slides.forEach((slide, index) => {
+      slide.addEventListener('click', () => {
+        // メインSwiperのスライドを切り替え
+        mainSwiper.slideTo(index); // メインSwiperのスライドを移動
+        thumbSwiper.slideTo(index); // サブSwiperも同じインデックスに移動
+      });
+    });
+});
 </script>

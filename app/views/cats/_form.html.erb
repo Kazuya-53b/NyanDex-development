@@ -319,7 +319,7 @@
           await Promise.all(croppedImages.map(async (base64Data) => {
               const response = await fetch(base64Data);
               const blob = await response.blob();
-              const file = new File([blob], `cropped_image_${Date.now()}.jpg`, { type: 'image/jpeg' }); // ここでファイル形式をJPEGに変更
+              const file = new File([blob], `cropped_image_${Date.now()}_${Math.random()}.jpg`, { type: 'image/jpeg' }); // ここでファイル形式をJPEGに変更
               dataTransfer.items.add(file);
           }));
 
